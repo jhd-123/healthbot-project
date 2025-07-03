@@ -21,8 +21,8 @@
     console.log("🔥 이건 진짜 login.jsp입니다.");
 
     function kakaoLogin() {
-        const REST_API_KEY = '290ec4c3477f4e0f7ac02a0b468ddafa';
-        const REDIRECT_URI = 'https://b27b-210-183-163-229.ngrok-free.app/oauth/kakao/callback';
+        const REST_API_KEY = '258fb141165b1f58e8cb1847169c112f';
+        const REDIRECT_URI = 'http://localhost:8080/oauth/kakao/callback';
 
 
 

@@ -35,6 +35,15 @@ public class KakaoLoginController {
         session.setAttribute("loginUser", kakaoUser);
         System.out.println("✅ 로그인 완료: " + kakaoUser);
 
+        // ✅ 콘솔에 사용자 전체 정보 출력
+        System.out.println("✅ 카카오 로그인 완료:");
+        System.out.println("ID: " + kakaoUser.getId());
+        System.out.println("닉네임: " + kakaoUser.getNickname());
+        System.out.println("이메일: " + kakaoUser.getEmail());
+        System.out.println("이름: " + kakaoUser.getName());
+        System.out.println("성별: " + kakaoUser.getGender());
+        System.out.println("출생년도: " + kakaoUser.getBirthyear());
+        System.out.println("전화번호: " + kakaoUser.getPhoneNumber());
         // ✅ 로그인 후 챗봇 페이지로 이동
         return "redirect:/chatbot";
     }

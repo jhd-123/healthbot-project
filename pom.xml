@@ -4,11 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.3.13</version>
-    <relativePath/>
+    <version>3.3.1</version> <!-- 필요 시 최신으로 조정 -->
+    <relativePath />
   </parent>
 
   <groupId>com.example</groupId>
@@ -22,18 +23,25 @@
   </properties>
 
   <dependencies>
-	  	<!-- JSP 렌더링용 Jasper 컴파일러 -->
-	<dependency>
-	    <groupId>org.apache.tomcat.embed</groupId>
-	    <artifactId>tomcat-embed-jasper</artifactId>
-	</dependency>
-  	
-  	<dependency>
-	  <groupId>org.springframework.boot</groupId>
-	  <artifactId>spring-boot-starter-oauth2-client</artifactId>
-	</dependency>
-  	
-    <!-- JSP 및 JSTL -->   
+    <!-- ✅ Spring Web -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- ✅ WebClient (카카오 API REST 호출용) -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-webflux</artifactId>
+    </dependency>
+
+    <!-- ✅ JSP 렌더링 -->
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-jasper</artifactId>
+    </dependency>
+
+    <!-- ✅ JSTL (JSP용 태그 라이브러리) -->
     <dependency>
       <groupId>jakarta.servlet.jsp.jstl</groupId>
       <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
@@ -45,39 +53,27 @@
       <version>3.0.1</version>
     </dependency>
 
-    <!-- Spring Web -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-
-    <!-- WebClient (카카오 API 호출용) -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-webflux</artifactId>
-    </dependency>
-
-    <!-- DTO 유효성 검사 -->
+    <!-- ✅ DTO 유효성 검사 -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-validation</artifactId>
     </dependency>
 
-    <!-- Lombok -->
+    <!-- ✅ Lombok -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <optional>true</optional>
     </dependency>
 
-    <!-- application.properties 자동완성 -->
+    <!-- ✅ application.properties 자동완성용 -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-configuration-processor</artifactId>
       <optional>true</optional>
     </dependency>
 
-    <!-- 테스트 관련 -->
+    <!-- ✅ 테스트 관련 (선택) -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -87,6 +83,7 @@
 
   <build>
     <plugins>
+      <!-- Java 컴파일 설정 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -105,6 +102,8 @@
           </annotationProcessorPaths>
         </configuration>
       </plugin>
+
+      <!-- Spring Boot 실행 플러그인 -->
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
